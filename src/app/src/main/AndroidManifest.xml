@@ -48,6 +48,10 @@
             android:name=".ReportsActivity"
             android:label="@string/title_activity_reports" >
         </activity>
+        <activity
+            android:name=".AddPatientActivity"
+            android:label="@string/title_activity_add_patient" >
+        </activity>
     </application>
 
 </manifest>

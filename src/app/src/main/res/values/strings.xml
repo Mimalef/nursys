@@ -12,4 +12,5 @@
     <string name="title_activity_session">SessionActivity</string>
     <string name="title_activity_add_equipment">AddEquipmentActivity</string>
     <string name="title_activity_reports">ReportsActivity</string>
+    <string name="title_activity_add_patient">AddPatientActivity</string>
 </resources>
