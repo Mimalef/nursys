@@ -16,7 +16,6 @@ gen/
 .gradle/
 build/
 /*/build/
-gradle.properties
 *.iml
 obj/
 **/build/*
