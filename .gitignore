@@ -16,6 +16,12 @@ gen/
 .gradle/
 build/
 /*/build/
+gradle.properties
+*.iml
+obj/
+**/build/*
+**/target/*
+target/*
 
 # Local configuration file (sdk path, etc)
 local.properties
@@ -25,3 +31,6 @@ proguard/
 
 # Log Files
 *.log
+
+# Please, Don't ask why!!
+.idea/
