@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,39 +17,39 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AddTreatmentActivity"
+            android:name=".activities.AddTreatmentActivity"
             android:label="@string/title_activity_add_treatment" >
         </activity>
         <activity
-            android:name=".ScheduleActivity"
+            android:name=".activities.ScheduleActivity"
             android:label="@string/title_activity_schedule" >
         </activity>
         <activity
-            android:name=".SelectPatientActivity"
+            android:name=".activities.SelectPatientActivity"
             android:label="@string/title_activity_select_patient" >
         </activity>
         <activity
-            android:name=".SelectServiceActivity"
+            android:name=".activities.SelectServiceActivity"
             android:label="@string/title_activity_select_service" >
         </activity>
         <activity
-            android:name=".TodayActivity"
+            android:name=".activities.TodayActivity"
             android:label="@string/title_activity_today" >
         </activity>
         <activity
-            android:name=".SessionActivity"
+            android:name=".activities.SessionActivity"
             android:label="@string/title_activity_session" >
         </activity>
         <activity
-            android:name=".AddEquipmentActivity"
+            android:name=".activities.AddEquipmentActivity"
             android:label="@string/title_activity_add_equipment" >
         </activity>
         <activity
-            android:name=".ReportsActivity"
+            android:name=".activities.ReportsActivity"
             android:label="@string/title_activity_reports" >
         </activity>
         <activity
-            android:name=".AddPatientActivity"
+            android:name=".activities.AddPatientActivity"
             android:label="@string/title_activity_add_patient" >
         </activity>
     </application>
