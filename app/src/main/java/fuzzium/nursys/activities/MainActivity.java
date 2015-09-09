@@ -1,12 +1,41 @@
-package fuzzium.nursys;
+package fuzzium.nursys.activities;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+
+import fuzzium.nursys.R;
 
 
 public class MainActivity extends ActionBarActivity {
+
+    public void startScheduleActivity(View view) {
+        Intent intent = new Intent(this, ScheduleActivity.class);
+        startActivity(intent);
+    }
+
+    public void startAddEquipmentActivity(View view) {
+        Intent intent = new Intent(this, AddEquipmentActivity.class);
+        startActivity(intent);
+    }
+
+    public void startAddTreatmentActivity(View view) {
+        Intent intent = new Intent(this, AddTreatmentActivity.class);
+        startActivity(intent);
+    }
+
+    public void startAddPatientActivity(View view) {
+        Intent intent = new Intent(this, AddPatientActivity.class);
+        startActivity(intent);
+    }
+
+    public void startReportsActivity(View view) {
+        Intent intent = new Intent(this, ReportsActivity.class);
+        startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

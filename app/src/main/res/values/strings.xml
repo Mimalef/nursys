@@ -1,16 +1,21 @@
 <resources>
-    <string name="app_name">Nursys</string>
+    <string name="app_name">نورسیس</string>
+    <string name="action_settings">تنظیمات</string>
 
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
-    <string name="title_activity_add_treatment">AddTreatmentActivity</string>
-    <string name="title_activity_schedule">ScheduleActivity</string>
-    <string name="title_activity_select_patient">SelectPatientActivity</string>
-    <string name="title_activity_select_service">SelectServiceActivity</string>
-    <string name="title_activity_today">TodayActivity</string>
-    <string name="title_activity_treatment">TreatmentActivity</string>
-    <string name="title_activity_session">SessionActivity</string>
-    <string name="title_activity_add_equipment">AddEquipmentActivity</string>
-    <string name="title_activity_reports">ReportsActivity</string>
-    <string name="title_activity_add_patient">AddPatientActivity</string>
+    <string name="title_activity_add_treatment">دوره جدید</string>
+    <string name="title_activity_schedule">برنامه روزانه</string>
+    <string name="title_activity_select_patient">انتخاب بیمار</string>
+    <string name="title_activity_select_service">انتخاب سرویس</string>
+    <string name="title_activity_today">برنامه امروز</string>
+    <string name="title_activity_treatment">دوره درمان</string>
+    <string name="title_activity_session">جلسه</string>
+    <string name="title_activity_add_equipment">تجهیزات جدید</string>
+    <string name="title_activity_reports">گزارشات</string>
+    <string name="title_activity_add_patient">بیمار جدید</string>
+
+    <string name="buttonSchedule">برنامه روزانه</string>
+    <string name="buttonAddTreatment">دوره جدید</string>
+    <string name="buttonAddEquipment">تجهیزات جدید</string>
+    <string name="buttonAddPatient">بیمار جدید</string>
+    <string name="buttonReports">گزارشات</string>
 </resources>
