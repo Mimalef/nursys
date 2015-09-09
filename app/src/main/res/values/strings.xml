@@ -12,10 +12,13 @@
     <string name="title_activity_add_equipment">تجهیزات جدید</string>
     <string name="title_activity_reports">گزارشات</string>
     <string name="title_activity_add_patient">بیمار جدید</string>
+    <string name="title_activity_add_service">سرویس جدید</string>
+    <string name="title_activity_select_equipment">انتخاب تجهیزات</string>
 
     <string name="buttonSchedule">برنامه روزانه</string>
     <string name="buttonAddTreatment">دوره جدید</string>
     <string name="buttonAddEquipment">تجهیزات جدید</string>
     <string name="buttonAddPatient">بیمار جدید</string>
     <string name="buttonReports">گزارشات</string>
+
 </resources>

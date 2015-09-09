@@ -52,6 +52,14 @@
             android:name=".activities.AddPatientActivity"
             android:label="@string/title_activity_add_patient" >
         </activity>
+        <activity
+            android:name=".activities.AddServiceActivity"
+            android:label="@string/title_activity_add_service" >
+        </activity>
+        <activity
+            android:name=".activities.SelectEquipmentActivity"
+            android:label="@string/title_activity_select_equipment" >
+        </activity>
     </application>
 
 </manifest>
