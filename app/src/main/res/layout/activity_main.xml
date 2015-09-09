@@ -11,7 +11,8 @@
         android:text="@string/buttonAddTreatment"
         android:id="@+id/buttonAddTreatment"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="startAddTreatmentActivity" />
 
     <Button
         android:layout_width="wrap_content"
@@ -19,7 +20,8 @@
         android:text="@string/buttonAddPatient"
         android:id="@+id/buttonAddPatient"
         android:layout_below="@+id/buttonAddTreatment"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="startAddPatientActivity" />
 
     <Button
         android:layout_width="wrap_content"
@@ -27,7 +29,8 @@
         android:text="@string/buttonAddEquipment"
         android:id="@+id/buttonAddEquipment"
         android:layout_above="@+id/buttonAddTreatment"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="startAddEquipmentActivity" />
 
     <Button
         android:layout_width="wrap_content"
@@ -35,7 +38,8 @@
         android:text="@string/buttonSchedule"
         android:id="@+id/buttonSchedule"
         android:layout_above="@+id/buttonAddEquipment"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="startScheduleActivity" />
 
     <Button
         android:layout_width="wrap_content"
