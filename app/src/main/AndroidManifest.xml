@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="fuzzium.nursys" >
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme"
+        android:name="com.orm.SugarApp" >
+
+        <meta-data android:name="DATABASE" android:value="nursys.db" />
+        <meta-data android:name="VERSION" android:value="1" />
+        <meta-data android:name="QUERY_LOG" android:value="true" />
+
+        <activity
+            android:name=".activities.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.AddTreatmentActivity"
+            android:label="@string/title_activity_add_treatment" >
+        </activity>
+        <activity
+            android:name=".activities.ScheduleActivity"
+            android:label="@string/title_activity_schedule" >
+        </activity>
+        <activity
+            android:name=".activities.SelectPatientActivity"
+            android:label="@string/title_activity_select_patient" >
+        </activity>
+        <activity
+            android:name=".activities.SelectServiceActivity"
+            android:label="@string/title_activity_select_service" >
+        </activity>
+        <activity
+            android:name=".activities.TodayActivity"
+            android:label="@string/title_activity_today" >
+        </activity>
+        <activity
+            android:name=".activities.SessionActivity"
+            android:label="@string/title_activity_session" >
+        </activity>
+        <activity
+            android:name=".activities.AddEquipmentActivity"
+            android:label="@string/title_activity_add_equipment" >
+        </activity>
+        <activity
+            android:name=".activities.ReportsActivity"
+            android:label="@string/title_activity_reports" >
+        </activity>
+        <activity
+            android:name=".activities.AddPatientActivity"
+            android:label="@string/title_activity_add_patient" >
+        </activity>
+        <activity
+            android:name=".activities.AddServiceActivity"
+            android:label="@string/title_activity_add_service" >
+        </activity>
+        <activity
+            android:name=".activities.SelectEquipmentActivity"
+            android:label="@string/title_activity_select_equipment" >
+        </activity>
+    </application>
+
+</manifest>
