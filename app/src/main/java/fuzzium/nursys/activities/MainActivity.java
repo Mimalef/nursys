@@ -6,49 +6,58 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 import fuzzium.nursys.R;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements View.OnClickListener  {
 
-    public void startScheduleActivity(View view) {
-        Intent intent = new Intent(this, ScheduleActivity.class);
-        startActivity(intent);
-    }
 
-    public void startAddEquipmentActivity(View view) {
-        Intent intent = new Intent(this, AddEquipmentActivity.class);
-        startActivity(intent);
-    }
+    private Button addPatient, addService, Schedule, newPeroid;
 
-    public void startAddTreatmentActivity(View view) {
-        Intent intent = new Intent(this, AddTreatmentActivity.class);
-        startActivity(intent);
-    }
 
-    public void startAddPatientActivity(View view) {
-        Intent intent = new Intent(this, AddPatientActivity.class);
-        startActivity(intent);
-    }
-
-    public void startReportsActivity(View view) {
-        Intent intent = new Intent(this, ReportsActivity.class);
-        startActivity(intent);
-    }
-
-    @Override
+        @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initControl();
     }
 
+    private void initControl() {
+
+        addPatient = (Button) findViewById(R.id.buttonAddPatient);
+        addPatient.setOnClickListener(this);
+        addPatient = (Button) findViewById(R.id.buttonSchedule);
+        addPatient.setOnClickListener(this);
+
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()) {
+            case R.id.buttonAddPatient: {
+                this.startActivity(new Intent(this,AddPatientActivity.class));
+
+                 }
+                break;
+
+            case R.id.buttonSchedule: {
+
+
+            }
+            break;
+
+        }
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -64,4 +73,5 @@ public class MainActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }
