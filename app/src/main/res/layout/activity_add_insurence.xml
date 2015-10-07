@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="fuzzium.nursys.activities.AddInsurenceActivity">
+
+<EditText
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:id="@+id/insurencname"
+    android:hint="نوع بیمه"/>
+<EditText
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:id="@+id/insuranceDiscount"
+    android:hint="تخفبف"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/regInsurence"
+        android:text="reg"
+        android:onClick="registerInsurence"/>
+<Spinner
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/insur_sp"
+  />
+
+
+</LinearLayout>

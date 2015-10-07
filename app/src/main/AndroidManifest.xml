@@ -62,8 +62,8 @@
             android:label="@string/title_activity_add_patient" >
         </activity>
         <activity
-            android:name=".activities.ViewPatient"
-            android:label="@string/title_activity_add_patient" >
+            android:name=".activities.AddInsurenceActivity"
+            android:label="@string/title_activity_add_insurence" >
         </activity>
         <activity
             android:name=".activities.AddServiceActivity"

@@ -11,45 +11,20 @@ import android.widget.Button;
 import fuzzium.nursys.R;
 
 
-public class MainActivity extends ActionBarActivity implements View.OnClickListener  {
+public class MainActivity extends ActionBarActivity  {
 
-
-    private Button addPatient, addService, Schedule, newPeroid;
-
-
-        @Override
+  @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initControl();
     }
 
-    private void initControl() {
-
-        addPatient = (Button) findViewById(R.id.buttonAddPatient);
-        addPatient.setOnClickListener(this);
-        addPatient = (Button) findViewById(R.id.buttonSchedule);
-        addPatient.setOnClickListener(this);
-
+    public void startAddInsurenceActivity(View view) {
+        this.startActivity(new Intent(this, AddInsurenceActivity.class));
     }
+    public void startAddPatientActivity(View view) {
+        this.startActivity(new Intent(this,AddPatientActivity.class));
 
-    @Override
-    public void onClick(View v) {
-
-        switch (v.getId()) {
-            case R.id.buttonAddPatient: {
-                this.startActivity(new Intent(this,AddPatientActivity.class));
-
-                 }
-                break;
-
-            case R.id.buttonSchedule: {
-
-
-            }
-            break;
-
-        }
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -57,7 +32,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -73,5 +47,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
         return super.onOptionsItemSelected(item);
     }
+
+
 
 }
