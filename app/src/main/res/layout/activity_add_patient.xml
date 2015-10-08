@@ -1,39 +1,74 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="fuzzium.nursys.AddPatientActivity"
-    android:orientation="vertical">
-    <EditText
-        android:layout_width="match_parent"
-        android:id="@+id/name"
-        android:hint="نام و نام خانوادگی "
-        android:layout_height="50dp" />
-    <EditText
-        android:layout_width="match_parent"
-        android:id="@+id/address"
-        android:hint="آدرس"
-        android:layout_height="50dp" />
-    <EditText
-        android:layout_width="match_parent"
-        android:id="@+id/insurance"
-        android:hint="بیمه"
-        android:layout_height="50dp" />
-    <EditText
-        android:layout_width="match_parent"
-        android:id="@+id/phone"
-        android:hint="تلفن"
-        android:layout_height="50dp" />
-    <Button
-        android:id="@+id/regPatient"
-        android:text="ثبت بیمار"
-        android:layout_width="100dp"
-        android:layout_height="100dp" />
-    <Button
-        android:id="@+id/viewPatient"
-        android:text="مشاهده"
-        android:layout_width="100dp"
-        android:layout_height="100dp" />
-</LinearLayout>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true"
+    android:scrollbars = "vertical"
+    android:scrollbarStyle="insideInset">
+    <LinearLayout
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        tools:context="fuzzium.nursys.AddPatientActivity"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+            android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:orientation="vertical"
+            android:id="@+id/GroupLayout">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:id="@+id/fname"
+                android:hint="نام"
+                android:layout_height="50dp" />
+            <EditText
+                android:layout_width="match_parent"
+                android:id="@+id/lname"
+                android:hint="نام خانوادگی"
+                android:layout_height="50dp" />
+            <EditText
+                android:layout_width="match_parent"
+                android:id="@+id/address"
+                android:hint="آدرس"
+                android:layout_height="50dp" />
+            <EditText
+                android:layout_width="match_parent"
+                android:id="@+id/insurance"
+                android:hint="بیمه"
+                android:layout_height="50dp" />
+            <EditText
+                android:layout_width="match_parent"
+                android:id="@+id/phone"
+                android:hint="تلفن"
+                android:layout_height="50dp" />
+            <Button
+                android:id="@+id/addTell"
+                android:text="+"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:onClick="addTell"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/regPatient"
+                android:text="ثبت بیمار"
+                android:layout_width="100dp"
+                android:layout_height="100dp" />
+            <Button
+                android:id="@+id/viewPatient"
+                android:text="مشاهده"
+                android:layout_width="100dp"
+                android:layout_height="100dp" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

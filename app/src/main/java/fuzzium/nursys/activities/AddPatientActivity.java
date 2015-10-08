@@ -3,24 +3,35 @@ package fuzzium.nursys.activities;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.GridLayout;
+import android.widget.LinearLayout;
+import android.widget.RadioGroup;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import fuzzium.nursys.R;
 import fuzzium.nursys.entities.Patient;
+import fuzzium.nursys.entities.Telephone;
 
 public class AddPatientActivity extends ActionBarActivity implements View.OnClickListener {
 
     private Button regpatient,viewPatient;
-    private EditText name,address,insurance;
+    private EditText fname,lname,address,insurance;
+    List<EditText> tells = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_patient);
         initContol();
+        // ActionBar bar = getActionBar();
+        //bar.hide();
     }
 
     private void initContol() {
@@ -31,29 +42,57 @@ public class AddPatientActivity extends ActionBarActivity implements View.OnClic
         viewPatient.setOnClickListener(this);
 
 
-        name=(EditText)findViewById(R.id.name);
+        fname=(EditText)findViewById(R.id.fname);
+        lname=(EditText)findViewById(R.id.lname);
         address=(EditText)findViewById(R.id.address);
         insurance=(EditText)findViewById(R.id.insurance);
+        EditText tell=(EditText)findViewById(R.id.phone);
+        tells.add(tell);
     }
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.regPatient:{
                 Patient savePatient=new Patient();
-                savePatient.setName(name.getText().toString());
+                savePatient.setFname(fname.getText().toString());
+                savePatient.setLname(lname.getText().toString());
                 savePatient.setAddress(address.getText().toString());
                 savePatient.setInsurance(3333);
-                savePatient.setRegDate(33333);
                 savePatient.save();
+
+
+                for(int i=0; i < tells.size(); i++){
+                    Telephone patienttel=new Telephone();
+                    patienttel.setTell(tells.get(i).getText().toString());
+                    patienttel.patient=savePatient;
+                    patienttel.save();
+
+                }
 
 
                 break;
             }
             case R.id.viewPatient:
             {
-                this.startActivity(new Intent(this,ViewPatient.class));
+                this.startActivity(new Intent(this,SelectPatientActivity.class));
             }
         }
+    }
+    public void addTell(View view) {
+
+
+        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.GroupLayout);
+        EditText editTextView = new EditText(this);
+        editTextView.setGravity(Gravity.CENTER);
+
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT, 1);
+
+        editTextView.setLayoutParams(params);
+        editTextView.setHint("????? ????");
+        editTextView.setWidth(300);
+        linearLayout.addView(editTextView);
+        tells.add(editTextView);
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -76,6 +115,7 @@ public class AddPatientActivity extends ActionBarActivity implements View.OnClic
 
         return super.onOptionsItemSelected(item);
     }
+
 
 
 }
