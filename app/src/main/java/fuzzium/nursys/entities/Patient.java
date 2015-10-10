@@ -10,13 +10,10 @@ public class Patient extends SugarRecord<Patient> {
     private String fname;
     private String lname;
     private String address;
-    private int insurance;
     private long regDate;//unixTimestamp
 
     // Forein keys
-    // public Insurence insurance;
-
-
+    public Insurence insurance;
 
     public Patient(){
         this.regDate =System.currentTimeMillis()/1000L;
@@ -29,8 +26,8 @@ public class Patient extends SugarRecord<Patient> {
         this.lname=family;
         this.address = address;
         this.regDate =System.currentTimeMillis()/1000L;
-        this.insurance = insurance;
     }
+
     public List<Telephone> getphone(){
         return Telephone.find(Telephone.class, "patient = ?", String.valueOf(this.getId()));
     }
@@ -62,17 +59,11 @@ public class Patient extends SugarRecord<Patient> {
         return regDate;
     }
 
-    public int getInsurance() {
-        return insurance;
-    }
 
     public void setAddress(String address) {
         this.address = address;
     }
 
-    public void setInsurance(int insurance) {
-        this.insurance = insurance;
-    }
 
     public String toString() {
         List<Telephone>  tellPhones=getphone();

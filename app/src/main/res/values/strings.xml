@@ -23,4 +23,12 @@
     <string name="buttonAddInsurence">بیمه</string>
     <string name="buttonReports">گزارشات</string>
 
+    <string name="enter_name">لطفا نام را به حروف وارد کنید</string>
+    <string name="enter_tell"> شماره تماس خود را به عدد وارد کنید</string>
+    <string name="enter_somthing">وارد کردن فیلد الزامی است</string>
+    <string name="bime">بیمه تحت پوشش</string>
+
+
+
+
 </resources>

@@ -1,96 +1,129 @@
 package fuzzium.nursys.activities;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridLayout;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
+import android.widget.Toast;
+
+import com.andreabaccega.widget.FormEditText;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import fuzzium.nursys.R;
+import fuzzium.nursys.entities.Insurence;
 import fuzzium.nursys.entities.Patient;
 import fuzzium.nursys.entities.Telephone;
 
-public class AddPatientActivity extends ActionBarActivity implements View.OnClickListener {
+public class AddPatientActivity extends ActionBarActivity  {
 
-    private Button regpatient,viewPatient;
-    private EditText fname,lname,address,insurance;
+    private EditText address;
+    private FormEditText fname,lname,tell;
+
     List<EditText> tells = new ArrayList<>();
+
+    private List<Insurence> insurenceList;
+    private Spinner insur_sp;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_patient);
         initContol();
-        // ActionBar bar = getActionBar();
-        //bar.hide();
+
     }
 
     private void initContol() {
 
-        regpatient=(Button) findViewById(R.id.regPatient);
-        viewPatient=(Button)findViewById(R.id.viewPatient);
-        regpatient.setOnClickListener(this);
-        viewPatient.setOnClickListener(this);
+        fname=(FormEditText)findViewById(R.id.fname);
+        lname=(FormEditText)findViewById(R.id.lname);
+        tell=(FormEditText)findViewById(R.id.phone);
+        tells.add(tell);//add to tell lists
 
-
-        fname=(EditText)findViewById(R.id.fname);
-        lname=(EditText)findViewById(R.id.lname);
         address=(EditText)findViewById(R.id.address);
-        insurance=(EditText)findViewById(R.id.insurance);
-        EditText tell=(EditText)findViewById(R.id.phone);
-        tells.add(tell);
+
+        insur_sp = (Spinner) findViewById(R.id.insur_sp);
+        insurenceList=Insurence.listAll(Insurence.class);
+        ArrayAdapter<Insurence> dataAdapter = new ArrayAdapter<Insurence>(this, android.R.layout.simple_spinner_item, insurenceList);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        insur_sp.setAdapter(dataAdapter);
+        insur_sp.setPrompt("بیمه تحت پوشش");
+
+
+
     }
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.regPatient:{
-                Patient savePatient=new Patient();
-                savePatient.setFname(fname.getText().toString());
-                savePatient.setLname(lname.getText().toString());
-                savePatient.setAddress(address.getText().toString());
-                savePatient.setInsurance(3333);
-                savePatient.save();
+
+    public void AddPatientOpration(View view) {
+
+        FormEditText[] allFields    = { fname, lname, tell };
 
 
-                for(int i=0; i < tells.size(); i++){
-                    Telephone patienttel=new Telephone();
-                    patienttel.setTell(tells.get(i).getText().toString());
-                    patienttel.patient=savePatient;
-                    patienttel.save();
-
-                }
-
-
-                break;
-            }
-            case R.id.viewPatient:
-            {
-                this.startActivity(new Intent(this,SelectPatientActivity.class));
-            }
+        boolean allValid = true;
+        for (FormEditText field: allFields) {
+            allValid = field.testValidity() && allValid;
         }
+
+        if (!allValid) {
+            showMessageDialog(" تمام فیلدها را وارد کنید! All files must be filled");
+        }
+        else {
+            Insurence patientInsurence = new Insurence();
+            patientInsurence = (Insurence) insur_sp.getSelectedItem();
+            patientInsurence.save();
+
+            Patient savePatient = new Patient();
+            savePatient.setFname(fname.getText().toString());
+            savePatient.setLname(lname.getText().toString());
+            savePatient.setAddress(address.getText().toString());
+            savePatient.save();
+
+            savePatient.insurance = patientInsurence;
+
+            for (int i = 0; i < tells.size(); i++) {
+                Telephone patienttel = new Telephone();
+                patienttel.setTell(tells.get(i).getText().toString());
+                patienttel.patient = savePatient;
+                patienttel.save();
+
+            }
+            showDialog();
+
+        }
+    }
+     public void StartSelcetPatientActivity(View view) {
+        this.startActivity(new Intent(this,SelectPatientActivity.class));
+
     }
     public void addTell(View view) {
 
 
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.GroupLayout);
-        EditText editTextView = new EditText(this);
+        FormEditText editTextView = new FormEditText(this);
         editTextView.setGravity(Gravity.CENTER);
 
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT, 1);
 
         editTextView.setLayoutParams(params);
-        editTextView.setHint("????? ????");
+        editTextView.setHint("تلفن");
         editTextView.setWidth(300);
+        editTextView.setError("عدد وارد کنید");
         linearLayout.addView(editTextView);
         tells.add(editTextView);
     }
@@ -100,6 +133,51 @@ public class AddPatientActivity extends ActionBarActivity implements View.OnClic
         getMenuInflater().inflate(R.menu.menu_add_patient, menu);
         return true;
     }
+    private void showMessageDialog(final String message)
+    {
+        final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setMessage(message);
+        final AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
+    private void showDialog()
+    {
+        // After submission, Dialog opens up with "Success" message. So, build the AlartBox first
+        final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+
+        // Set the appropriate message into it.
+        alertDialogBuilder.setMessage("موفق به ثبت! register successfuly");
+
+        // Add a positive button and it's action. In our case action would be, just hide the dialog box
+        // so no need to write any code for that.
+        alertDialogBuilder.setPositiveButton("اضافه کردن",
+                new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+                    }
+                });
+
+        // Add a negative button and it's action. In our case, just open up the ViewStudentRecordActivity screen
+        //to display all the records
+        alertDialogBuilder.setNegativeButton("مشاهده",
+                new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        final Intent negativeActivity = new Intent(getApplicationContext(),SelectPatientActivity.class);
+                        startActivity(negativeActivity);
+                        finish();
+
+                    }
+                });
+
+        // Now, create the Dialog and show it.
+        final AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -115,7 +193,5 @@ public class AddPatientActivity extends ActionBarActivity implements View.OnClic
 
         return super.onOptionsItemSelected(item);
     }
-
-
 
 }
