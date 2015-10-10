@@ -66,11 +66,11 @@ public class Patient extends SugarRecord<Patient> {
 
 
     public String toString() {
-        List<Telephone>  tellPhones=getphone();
-        String tellstring="";
-        for(int i=0;i<tellPhones.size();i++)
-            tellstring+=tellPhones.get(i).getTell();
-        return  lname +" "+ fname + " "+tellstring;
+ //       List<Telephone>  tellPhones=getphone();
+//        String tellstring="";
+//        for(int i=0;i<tellPhones.size();i++)
+//            tellstring+=tellPhones.get(i).getTell();
+        return  lname +" "+ fname;
     }
 
 
