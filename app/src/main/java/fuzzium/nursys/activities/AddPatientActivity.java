@@ -78,6 +78,10 @@ public class AddPatientActivity extends ActionBarActivity  {
         for (FormEditText field: allFields) {
             allValid = field.testValidity() && allValid;
         }
+        //add insurence at first
+
+         if(insurenceList.size()<1)
+             allValid=(false) && allValid;
 
         if (!allValid) {
             showMessageDialog(" تمام فیلدها را وارد کنید! All files must be filled");
