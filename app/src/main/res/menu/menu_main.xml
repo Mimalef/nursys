@@ -1,6 +1,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
-    <item android:id="@+id/action_settings" android:title="@string/action_settings"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="fuzzium.nursys.SelectPatientActivity">
+    <item android:id="@+id/Item1" android:title="Item1"
+        android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/Item2" android:title="Item2"
+        android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/Item3" android:title="Item3"
         android:orderInCategory="100" app:showAsAction="never" />
 </menu>

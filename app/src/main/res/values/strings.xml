@@ -29,6 +29,9 @@
     <string name="bime">بیمه تحت پوشش</string>
 
 
+    <string name="view">مشاهده</string>
+    <string name="edit">ویرایش</string>
+    <string name="delete">حذف</string>
 
 
 </resources>
