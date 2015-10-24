@@ -52,7 +52,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="بیمه: "/>
+                android:text="بیمه: "
+                style="@style/CustomFontStyle"/>
             <Spinner
                 android:prompt="@string/bime"
                 android:layout_width="match_parent"
@@ -71,27 +72,41 @@
                 android:layout_height="50dp" />
             <Button
                 android:id="@+id/addTell"
-                android:text="شماره تماس دیگر"
-                android:layout_width="100dp"
-                android:layout_height="60dp"
+                android:text="+"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:shadowRadius="5"
                 android:onClick="addTell"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <Button
-                android:id="@+id/regPatient"
+                 android:id="@+id/regPatient"
                 android:text="ثبت بیمار"
+                android:textColor="#3D271C"
+                android:textSize="20sp"
                 android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:onClick="AddPatientOpration"/>
+                android:layout_height="55dp"
+                android:background="@drawable/buttonshape"
+                android:shadowColor="#A8A8A1"
+                android:shadowRadius="5"
+                android:onClick="AddPatientOpration"
+                />
             <Button
                 android:id="@+id/viewPatient"
                 android:text="مشاهده"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
+                android:textColor="#3D271C"
+                android:textSize="20sp"
+                android:background="@drawable/buttonshape"
+                android:shadowColor="#A8A8A1"
+                android:shadowRadius="5"
                 android:onClick="StartSelcetPatientActivity"/>
+
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

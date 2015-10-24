@@ -43,7 +43,9 @@ public class AddPatientActivity extends ActionBarActivity  {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+        setTheme(R.style.MyCustomTheme);
         setContentView(R.layout.activity_add_patient);
         initContol();
 
